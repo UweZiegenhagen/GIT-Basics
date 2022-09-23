@@ -14,7 +14,7 @@
   keywordstyle=\color{blue},
 language=bash,
 frame=single,
-morekeywords={git,mkdir}
+morekeywords={git,mkdir,status,touch,add,config}
 }
 
 \usepackage[sfdefault]{plex-sans}
@@ -167,6 +167,99 @@ nothing to commit (create/copy files and use
 \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Adding files to the Repository 1} % create/copy files and use "git add" to track
+
+\begin{lstlisting}
+$ touch README.MD # creates an empty file
+
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+(use "git add <file>..." to include in what will 
+be committed)
+        README.MD
+
+nothing added to commit but untracked files 
+present (use "git add" to track)
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Adding files to the Repository 2} 
+
+\begin{lstlisting}
+$ git add README.MD # add file to staging area
+
+$ git add -A # add all files to staging area
+# not added to repository
+
+$ git reset # remove everything from the
+# staging area
+
+$ git commit -m "My message" # Don't forget!!!
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Adding files to the Repository 3} 
+
+\begin{lstlisting}
+$ git commit -m "Initial commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@examp.de"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this 
+repository.
+
+fatal: unable to auto-detect email address (got 
+'Uwe@DESKTOP-RH75H57.(none)')
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Adding files to the Repository 4} 
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
+$ git config --global user.email "ziegenhagen@gmail.com"
+
+Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
+$ git config --global user.name "Uwe Ziegenhagen"
+
+Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
+$ git commit -m "Initial commit"
+[master (root-commit) acb9d75] Initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.MD
+
+Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+\end{lstlisting}
+
+Now we have a file under version control! 
+
+\end{frame}
+
 
  
 \end{document}
