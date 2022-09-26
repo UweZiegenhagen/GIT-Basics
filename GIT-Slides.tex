@@ -81,7 +81,7 @@ In the following we will look as various use cases for working with Git
 \item 
 \end{itemize}
 
-Remark: Git can be quite complex, normally you need only a few commands.
+Remark: Git can be quite complex, but normally you need only a few commands.
 
 \end{frame}
 
@@ -237,6 +237,9 @@ fatal: unable to auto-detect email address (got
 \begin{frame}[containsverbatim]
 \frametitle{Adding files to the Repository 4} 
 
+
+
+
 \begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
 Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
 $ git config --global user.email "ziegenhagen@gmail.com"
@@ -256,10 +259,125 @@ On branch master
 nothing to commit, working tree clean
 \end{lstlisting}
 
-Now we have a file under version control! 
+Now we have a file under version control! Yippie!
 
 \end{frame}
 
+\begin{frame}
+\frametitle{A Word of Warning!}
+
+\begin{itemize}
+\item When you omit the commit message, Git takes you to vim (VI \enquote{improved}) to allow you to enter it
+\item VIM = very powerful editor with strange user interface
+\item VIM uses special modes and is (almost) keyboard-only
+\end{itemize}
+
+Let's edit our file and commit it\ldots 
+
+You can use e.\,g. \texttt{nano} the edit the file.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Editing the file with \texttt{nano README.MD}}
+
+\includegraphics[width=\textwidth]{nano-edit}
+
+\begin{itemize}
+\item The circumflex means the Ctrl-key
+\item So Ctrl-O saves the file, Ctrl-X exits \texttt{nano}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Escape from VIM Hell\ldots -- Part 1} 
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+Uwe@DESKTOP MINGW64 /e/myfirstgitrepo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working 
+  directory)
+        modified:   README.MD
+
+no changes added to commit (use "git add" and/or
+ "git commit -a")
+\end{lstlisting}
+
+Git notices that we changed a file, that is under version control
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+\frametitle{Escape from VIM Hell\ldots -- Part 2} 
+
+\begin{itemize}
+\item We add the file to the commit stage
+\item you can ignore the LF warning. It just means that \texttt{nano} used Unix-style line endings (\texttt{\textbackslash n}) in the file, for the repository however Windows line endings (\texttt{\textbackslash r\textbackslash n})
+\end{itemize}
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+Uwe@DESKTOP-RH75H57 MINGW64 /e/myfirstgitrepo (master)
+$ git add README.MD
+warning: in the working copy of 'README.MD', LF will be 
+replaced by CRLF the next time Git touches it
+\end{lstlisting}
+
+Remarks: \texttt{\textbackslash n} means Line Feed-Character,  \texttt{\textbackslash r\textbackslash n} means Carriage Return + Line Feed. Helpful to know when working with text files.
+
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Escape from VIM Hell\ldots -- Part 3} 
+
+We briefly check the status
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.MD
+\end{lstlisting}
+
+and commit it without specifying the message parameter
+
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize]
+$ git commit
+\end{lstlisting}
+
+Which takes us to eternal pain, the VIM!!!
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Escape from VIM Hell\ldots -- Part 4}
+
+\includegraphics[width=\textwidth]{vim-hell}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Escape from VIM Hell\ldots -- Part 5}
+
+\begin{itemize}
+\item \texttt{ESC}~\texttt{:}~\texttt{q} lets you exit without specifying a message, but you do not commit then.
+\item \texttt{ESC}~\texttt{:}~\texttt{q}~\texttt{!} lets you exit without specifying a message if you typed anything, but you do not commit then.
+\item 
+\item 
+\item 
+\item 
+\end{itemize}
+\end{frame}
 
  
 \end{document}
