@@ -372,12 +372,95 @@ Which takes us to eternal pain, the VIM!!!
 \begin{itemize}
 \item \texttt{ESC}~\texttt{:}~\texttt{q} lets you exit without specifying a message, but you do not commit then.
 \item \texttt{ESC}~\texttt{:}~\texttt{q}~\texttt{!} lets you exit without specifying a message if you typed anything, but you do not commit then.
-\item 
-\item 
-\item 
-\item 
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{Display the commit history with \texttt{git log}}
+
+\begin{itemize}
+	\item \texttt{git log} for the history of commits
+\item \texttt{git log -p} including the the full diff\footnote{diff = differences between file in the \texttt{diff} format}
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{gitlog}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Example for \texttt{git log -p}}
+
+\begin{center}
+\includegraphics[width=\textwidth]{gitlogp}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Get back to earlier versions 1}
+
+\begin{itemize}
+\item Let us assume we have this line in the old file
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=\textwidth]{getback-1}
+\end{center}
+
+and have changed it (and added it to the staging area and commited it) 
+
+\begin{center}
+\includegraphics[width=\textwidth]{getback-2}
+\end{center}
+
+\end{frame}
  
+\begin{frame}
+\frametitle{Get back to earlier  versions 2}
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{getback-3}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Get back to earlier versions 3}
+
+To which version you want to go? 
+
+\begin{center}
+\fbox{\includegraphics[width=\textwidth]{getback-4}}
+\end{center}
+
+\begin{itemize}
+\item \texttt{git checkout 41e8e41 .}
+\item Do not forget the dot at the end, otherwise you end in \texttt{detached head state}, which you can/need to fix by \texttt{git checkout master}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Get back to earlier versions 4}
+
+\begin{center}
+\fbox{\includegraphics[width=0.75\textwidth]{getback-5}}
+\end{center}
+
+Commit this version as well and note in the message why you reverted!
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Get back to earlier versions 5}
+
+\begin{center}
+\fbox{\includegraphics[width=\textwidth]{getback-6}}
+\end{center}
+
+\end{frame}
+
+
 \end{document}
