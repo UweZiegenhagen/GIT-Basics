@@ -463,11 +463,21 @@ Commit this version as well and note in the message why you reverted!
 \end{frame}
 
 \begin{frame}
+\frametitle{Cloning and pulling repositories}
+
+\begin{itemize}
+\item Imagine the production stuff sits in one git repository and you want to have a local copy: \texttt{git clone /e/myfirstgitrepo}
+\item Now we make changes in the original repository (\texttt{nano secondfile.txt}, add to staging, commit)
+\item In the local repository run \texttt{git pull} to get the file into your local repo
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Next steps\ldots}
 
 \begin{itemize}
-\item How to keep a master repository and pull/push using this repository
-\item How to merge changes by different people into one file
+\item How to push the changes to the upstream repository
 \item And much, much more!
 \end{itemize}
 \end{frame}
